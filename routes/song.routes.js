@@ -7,6 +7,5 @@ const ctrlSong = require("../controllers/song.controller");
 
 router.get("/", ctrlSong.songList);
 router.post("/", ctrlSong.addSong);
-
 router.put("/updateRating/:id" ,ctrlSong.updateRating);
 module.exports = router;

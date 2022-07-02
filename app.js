@@ -10,16 +10,19 @@ const cors = require("cors");
 
 const songRoute = require("./routes/song.routes");
 const artistRoute = require("./routes/artist.routes");
+const userRoute = require("./routes/user.routes");
 
+app.use(cors());
 app.use(bodyParser.json());
 app.use(
   bodyParser.urlencoded({
     extended: true,
   })
 );
+
 app.use("/song", songRoute);
 app.use("/artist", artistRoute);
-app.use(cors());
+app.use("/user", userRoute);
 
 
 app.listen(process.env.PORT || 3000, () => {

@@ -5,12 +5,12 @@ const songSchema = new mongoose.Schema({
   
   songName:{
     type: String,
-    // required: [true, "song must belong to a Tour!"],
+    required: [true, "song must have a name!"],
   },
   artist:[{
     type: mongoose.Schema.ObjectId,
     ref: artistModel,
-
+    required: [true, "song must have a artist!"],
 }],
   totalRatings: {
     type: Number
@@ -22,10 +22,12 @@ const songSchema = new mongoose.Schema({
     type:mongoose.Types.Decimal128
   },
   coverImage: {
-    type: String
+    type: String,
+    required: [true, "song must have a name!"],
   },
   date: {
-    type: String
+    type: String,
+    required: [true, "song must have a name!"],
   },
 });
 
