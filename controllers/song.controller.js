@@ -63,6 +63,7 @@ exports.updateRating = async (req, res) => {
   });
 
   console.log("totalRatings" + totalRatings);
+
   const update = {
     totalRatings: totalRatings,
     totalUsers: totalUsers,
@@ -72,14 +73,14 @@ exports.updateRating = async (req, res) => {
   Song.findOneAndUpdate(
     filter,
     update,
-    {
-      new: true,
-    },
-    function (doc, err) {
+    {upsert: true},
+    function (err, doc) {
       if (doc) {
         res.status(200).send(doc);
+        console.log('success');
       } else {
         res.status(400).send(err);
+        console.log('err',err);
       }
     }
   );

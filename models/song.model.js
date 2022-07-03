@@ -13,10 +13,12 @@ const songSchema = new mongoose.Schema({
     required: [true, "song must have a artist!"],
 }],
   totalRatings: {
-    type: Number
+    type: Number,
+    default:0
   },
   totalUsers: {
-    type: Number
+    type: Number,
+    default:0
   },
   avgRatings: {
     type:mongoose.Types.Decimal128

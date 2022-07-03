@@ -15,8 +15,7 @@ const artistSchema = new mongoose.Schema({
     required: [true, "artist must have a Date of birth!"],
   },
   avgRatings: {
-    type:mongoose.Types.Decimal128,
-    default: "0.00"
+    type:mongoose.Types.Decimal128
   },
   songs:[{
     type: mongoose.Schema.ObjectId,

@@ -12,7 +12,6 @@ exports.addArtist = (req, res) => {
   artist.bio = req.body.bio;
   artist.DOB = req.body.DOB;
 
-
   artist.save((err, doc) => {
     if (!err) {
       res.send(doc);
@@ -39,7 +38,7 @@ exports.topArtists = async (req, res) => {
     var filter = { _id: artist._id };
     var update = { avgRatings: avgRating }; //save the new avg rating  for each artist
 
-    await Artist.findOneAndUpdate(filter, update, { new: true }).then((doc) => {
+    await Artist.findOneAndUpdate(filter, update, {upsert: true}).then((doc) => {
       if (doc) {
         console.log("doc:");
         // console.log("doc",doc);
